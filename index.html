@@ -19,6 +19,16 @@
 
       function Comenzar() {
         pkw = parseInt(prompt("Precio del KW"));
+        
+        document.write(
+          "<center>",
+          "Consumos Electricidad",
+          "<table  border='1' style='width: 100%; border-collapse: collapse; margin-bottom: 20px;'>",
+          "<tr>",
+          "<th style='background-color: #B4B0B0; border: 1px solid #ddd; padding: 8px; text-align: left;'>Apellido y Nombre Socio</th>",
+          "<th style='background-color: #B4B0B0; border: 1px solid #ddd; padding: 8px; text-align: left;'>KW Consumidos</th>",
+          "<th style='background-color: #B4B0B0; border: 1px solid #ddd; padding: 8px; text-align: left;'>Tot a Pagar</th>",
+          "</tr>",)
 
         do {
           apn = prompt("Apellido y Nombre");
@@ -38,34 +48,32 @@
           } else {
             tot = mac - man;
             kw = tot * pkw;
+            
           }
+
+          document.write(
+          "<tr>",
+          "<td style='background-color: #3FA488; border: 1px solid #ddd; padding: 8px; text-align: left;'>", apn, "</td>",
+          "<td style='background-color: #3FA488; border: 1px solid #ddd; padding: 8px; text-align: left;'>", tot, "</td>",
+          "<td style='background-color: #3FA488; border: 1px solid #ddd; padding: 8px; text-align: left;'>", kw, "</td>",
+          "</tr>",)
+
         } while (prompt("Continuar (S/N)", "S") === "S");
 
         document.write(
-          "<center>",
-          "Consumos Electricidad",
-          "<table border='1'>",
-          "<tr>",
-          "<th>Apellido y Nombre Socio</th>",
-          "<th>KW Consumidos</th>",
-          "<th>Tot a Pagar</th>",
-          "</tr>",
-          "<tr>",
-          "<td>", apn, "</td>",
-          "<td>", tot, "</td>",
-          "<td>", kw, "</td>",
-          "</tr>",
+          
+          
           "</table>",
-          "</center>"
+          "</center>",
         );
 
         document.write(
+          "<br />", "<br />", 
           "<center>",
           "Cantidad Jubilados:", CanJub, "<br>",
           "Kw. Consumidos por Jubilados:", KwJub, "<br>",
           "Total a pagar por Jubilados:", TotJub, "<br>",
-          "</center>"
-        );
+          "</center>");
       }
     </script>
   </body>
