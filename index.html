@@ -1,35 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using @vitejs/plugin-react"
-    />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <title>React App</title>
+    
+    <title> Cooperativa </title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+   <center>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <h1>Cooperativa Electrica</h1>
+    <h2>La Buena Luz</h2>
+    <button onClick="Comenzar()"> Iniciar </button>
+   </center>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  <script> 
+
+    var apn, cat, dom, pkw, man, mac, tot, CanJub, kwJub, TotJ, TotJub;
+
+    CantJub=0;
+    KwJub=0;
+    TotJub=0;
+
+    function Comenzar() {
+      pkw=(parseInt(prompt("precio del KW")));
+      
+      do { 
+  
+      apn=prompt("apellido y Nombre");
+      dom=prompt("Domicilio");
+      cat=parseInt(prompt("Categoria (1/Normal 2/Jubilado)"));
+      man=parseInt(prompt("Medidor Anterior"));
+      mac=parseInt(prompt("Medidor Actual"));
+
+      if (cat=2) {
+        tot= mac-man;
+        totKw= (tot*pkw);
+        kw= totKw*0.75;
+
+        CantJub = CanJub+1;
+        KwJub = kwJub+tot;
+        TotJub = TotJub+kw;
+ 
+      } else {
+        
+        tot = mac-man;
+        kw = tot*pkw
+      }
+
+      } while (prompt("Continuar (S/N)", "S")=="S");
+ 
+      } 
+
+      document.write(
+      "<center>",
+        "Consumos Electricidad",
+        "<table>",
+          "<tr>",
+            "<th>","Apellido y Nombre Socio","</th>",
+            "<th>","KW Consumidos","</th>",
+            "<th>","Tot a Pagar","</th>",
+          "</tr>",
+          "<tr>",
+            "<td>", apn , "</td>",
+            "<td>", tot , "</td>",
+            "<td>", kw  , "</td>",
+          "</tr>",
+        "</table>",
+       "</center>",  
+      )
+      
+      document.write( 
+      "Cantidad Jubilados:", CanJub, "</br>",
+      "Kw. Consumidos por Jubilados:", KwJub, "</br>",
+      "Total a pagar por Jubilados:" , TotJub, "</br>",
+      )
+      
+  </script>
   </body>
-  <script type="module" src="/src/index.jsx"></script>
 </html>
