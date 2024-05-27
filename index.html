@@ -1,81 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
-    <title> Cooperativa </title>
+    <title>Cooperativa</title>
   </head>
   <body>
-   <center>
+    <center>
+      <h1>Cooperativa Electrica</h1>
+      <h2>La Buena Luz</h2>
+      <button onClick="Comenzar()">Iniciar</button>
+    </center>
 
-    <h1>Cooperativa Electrica</h1>
-    <h2>La Buena Luz</h2>
-    <button onClick="Comenzar()"> Iniciar </button>
-   </center>
+    <script> 
+      var apn, kw, cat, dom, pkw, man, mac, tot, CanJub, KwJub, TotJub;
 
-  <script> 
+      CanJub = 0;
+      KwJub = 0;
+      TotJub = 0;
 
-    var apn, kw, cat, dom, pkw, man, mac, tot, CanJub, kwJub, TotJ, TotJub;
+      function Comenzar() {
+        pkw = parseInt(prompt("Precio del KW"));
 
-    CantJub=0;
-    KwJub=0;
-    TotJub=0;
+        do {
+          apn = prompt("Apellido y Nombre");
+          dom = prompt("Domicilio");
+          cat = parseInt(prompt("Categoria (1/Normal 2/Jubilado)"));
+          man = parseInt(prompt("Medidor Anterior"));
+          mac = parseInt(prompt("Medidor Actual"));
 
-    function Comenzar() {
-      pkw=(parseInt(prompt("precio del KW")));
-      
-      do { 
-  
-      apn=prompt("apellido y Nombre");
-      dom=prompt("Domicilio");
-      cat=parseInt(prompt("Categoria (1/Normal 2/Jubilado)"));
-      man=parseInt(prompt("Medidor Anterior"));
-      mac=parseInt(prompt("Medidor Actual"));
+          if (cat === 2) {
+            tot = mac - man;
+            var totKw = tot * pkw;
+            kw = totKw * 0.75;
 
-      if (cat=2) {
-        tot= mac-man;
-        totKw= (tot*pkw);
-        kw= totKw*0.75;
+            CanJub++;
+            KwJub += tot;
+            TotJub += kw;
+          } else {
+            tot = mac - man;
+            kw = tot * pkw;
+          }
+        } while (prompt("Continuar (S/N)", "S") === "S");
 
-        CantJub = CanJub+1;
-        KwJub = kwJub+tot;
-        TotJub = TotJub+kw;
- 
-      } else {
-        
-        tot = mac-man;
-        kw = tot*pkw
+        document.write(
+          "<center>",
+          "Consumos Electricidad",
+          "<table border='1'>",
+          "<tr>",
+          "<th>Apellido y Nombre Socio</th>",
+          "<th>KW Consumidos</th>",
+          "<th>Tot a Pagar</th>",
+          "</tr>",
+          "<tr>",
+          "<td>", apn, "</td>",
+          "<td>", tot, "</td>",
+          "<td>", kw, "</td>",
+          "</tr>",
+          "</table>",
+          "</center>"
+        );
+
+        document.write(
+          "<center>",
+          "Cantidad Jubilados:", CanJub, "<br>",
+          "Kw. Consumidos por Jubilados:", KwJub, "<br>",
+          "Total a pagar por Jubilados:", TotJub, "<br>",
+          "</center>"
+        );
       }
-
-      } while (prompt("Continuar (S/N)", "S")=="S");
- 
-      } 
-
-      document.write(
-      "<center>",
-        "Consumos Electricidad",
-        "<table border='1'>",
-          "<tr>",
-            "<th>","Apellido y Nombre Socio","</th>",
-            "<th>","KW Consumidos","</th>",
-            "<th>","Tot a Pagar","</th>",
-          "</tr>",
-          "<tr>",
-            "<td>", apn , "</td>",
-            "<td>", tot , "</td>",
-            "<td>", kw  , "</td>",
-          "</tr>",
-        "</table>",
-       "</center>",  
-      )
-      
-      document.write( 
-        "<center>",
-      "Cantidad Jubilados:", CanJub, "</br>",
-      "Kw. Consumidos por Jubilados:", KwJub, "</br>",
-      "Total a pagar por Jubilados:" , TotJub, "</br>",
-      "</center>",
-      )
-      
-  </script>
+    </script>
   </body>
 </html>
